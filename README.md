@@ -50,6 +50,22 @@ The only known side effect of using this script is that the Microsoft Office app
 forcibly inserted into your Dock, as they would be if you used the GUI installer.
 This is considered a feature.
 
+## How to do something really stupid
+
+Included in this repository is an ill-conceived shell script named [uninstall_office2011.sh][666] which is a terrible idea and you should not use it.
+
+That would be really stupid. Don't use it. Certainly not without a verified backup. And even then. About the only thing more stupider *(ahem)* than that would be to delete all of your Microsoft related receipt files using something like this:
+
+	sudo rm -fv /private/var/db/receipts/com.microsoft.*
+
+which is a terrible idea because ***you may delete receipts which are not related to Office 2011***. That is an act of stupidity that only the very desperate would take, probably right before they used the `office2011.sh` script to reinstall Office, and only if something had gone terribly wrong and nothing else would fix it. And they had a verified backup. And knew what they were doing. And were willing to accept 100% of the responsibility for the consequences if it didn't work the way they hoped.
+
+Seriously, I'm not kidding. That's just not something that you ever should do.
+
+99.9999% of the time.
+
+I take no responsibility for anything that happens if you decide that *you* are the exception. NONE. Absolutely positively none. Zero. Nada. Zilch.
+
 
 <!-- Reference Links -->
 
@@ -64,5 +80,8 @@ This is considered a feature.
 [5]: https://raw.github.com/tjluoma/office2011/master/all-office-files.mmd
 
 [6]: https://raw.github.com/tjluoma/office2011/master/all-office-files.html
+
+[666]: https://raw.github.com/tjluoma/office2011/master/uninstall_office2011.sh
+
 
 [msft.digitalrivercontent.net]: http://msft.digitalrivercontent.net/mac/X18-08827.dmg
