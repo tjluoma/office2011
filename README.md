@@ -1,7 +1,7 @@
 office2011
 ==========
 
-A shel script to (download, if necessary) and install Office:Mac 2011 and any known updates without any user intervention.
+A shell script to (download, if necessary) and install Office:Mac 2011 and any known updates without any user intervention.
 
 ## Before we begin… ##
 
@@ -21,7 +21,7 @@ Here are the current (as of 2013-07-23) files which it looks for:
 
 3. `	AutoUpdate_236.dmg` - This is 'Microsoft AutoUpdate for Mac 2.3.6 Update'. If this file is not found it will be [downloaded from Microsoft][3].
 
-4. 	`Office2011-1436Update_EN-US.dmg` - This is "Microsoft Office for Mac 2011 14.3.6 Update" . If this file is not found it will be [downloaded from Microsoft][4]. When Microsoft issues a new updater, this will be replaced with that one (assuming that it does not require this as a prerequisite.) 
+4. 	`Office2011-1436Update_EN-US.dmg` - This is "Microsoft Office for Mac 2011 14.3.6 Update" . If this file is not found it will be [downloaded from Microsoft][4]. When Microsoft issues a new updater, this will be replaced with that one (assuming that it does not require this as a prerequisite.)
 
 The script is smart enough to check whether minimum requirements are met, and will also check to make sure that it does not install something which has already been installed. It will also checksum the DMGs using `shasum -a 256` to make sure that the files have not been altered or tampered with.
 
@@ -39,7 +39,7 @@ If setting up more than one Mac, simply copy the ~/Downloads/Office2011/ folder 
 
 ## This script does a basic, standard installation ##
 
-I make a list of all of the files which are created by this script. You can find it at either: 
+I make a list of all of the files which are created by this script. You can find it at either:
 
 * [all-office-files.mmd][5] for the MultiMarkdown version (3.5 MB)
 * [all-office-files.html][6] for the HTML version (3.8 MB)
@@ -61,8 +61,8 @@ This is considered a feature.
 
 [4]: http://www.microsoft.com/en-us/download/details.aspx?id=39634
 
-[5]: https://github.com/tjluoma/office2011
+[5]: https://raw.github.com/tjluoma/office2011/master/all-office-files.mmd
 
-[6]: https://github.com/tjluoma/office2011
+[6]: https://raw.github.com/tjluoma/office2011/master/all-office-files.html
 
 [msft.digitalrivercontent.net]: http://msft.digitalrivercontent.net/mac/X18-08827.dmg
