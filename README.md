@@ -56,7 +56,7 @@ Included in this repository is an ill-conceived shell script named [uninstall_of
 
 That would be really stupid. Don't use it. Certainly not without a verified backup. And even then. About the only thing more stupider *(ahem)* than that would be to delete all of your Microsoft related receipt files using something like this:
 
-	sudo rm -fv /private/var/db/receipts/com.microsoft.*
+		sudo rm -fv /private/var/db/receipts/com.microsoft.*
 
 which is a terrible idea because ***you may delete receipts which are not related to Office 2011***. That is an act of stupidity that only the very desperate would take, probably right before they used the `office2011.sh` script to reinstall Office, and only if something had gone terribly wrong and nothing else would fix it. And they had a verified backup. And knew what they were doing. And were willing to accept 100% of the responsibility for the consequences if it didn't work the way they hoped.
 
@@ -66,6 +66,20 @@ Seriously, I'm not kidding. That's just not something that you ever should do.
 
 I take no responsibility for anything that happens if you decide that *you* are the exception. NONE. Absolutely positively none. Zero. Nada. Zilch.
 
+## Slightly Less Stupid alternative (updated 2013-07-23)
+It occurs to me that a *slightly less stupid idea* would be to do:
+
+		sudo mv -vf /private/var/db/receipts/com.microsoft.* ~/Desktop/
+
+which will *move* the files out of the receipts folder onto your Desktop. That way you still have them. After you have reinstalled, you can do this:
+
+		cd ~/Desktop
+		
+		sudo mv -vn com.microsoft.* /private/var/db/receipts/
+
+which will move *back* any files which do not exist in /private/var/db/receipts/ so if you *did* happen to move Microsoft-but-not-Office-related receipts, you can restore them.
+
+Any com.microsoft.* files which remain in your ~/Desktop/ would be duplicates, and can (probably) be safely moved to the trash.
 
 <!-- Reference Links -->
 
