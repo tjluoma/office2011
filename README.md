@@ -15,7 +15,7 @@ The `office2011.sh`  script will look for certain DMG files in a particular fold
 
 Here are the current (as of 2013-07-23) files which it looks for:
 
-1.	`X18-08827.dmg` - this is the base installer for Microsoft Office 2001 "SP2" (aka version 14.2.0). It must be installed before anything else. You can find out more about it at [heidoc.net][1]. If this file is not found it will be downloaded from [msft.digitalrivercontent.net][], Microsoft's official digital store.
+1.	`X18-08827.dmg` - this is the base installer for Microsoft Office 2011 "SP2" (aka version 14.2.0). It must be installed before anything else. You can find out more about it at [heidoc.net][1]. If this file is not found it will be downloaded from [msft.digitalrivercontent.net][], Microsoft's official digital store.
 
 2. `MERP_229.dmg` - This is 'Microsoft Error Reporting for Mac 2.2.9 Update.' If this file is not found it will be [downloaded from Microsoft][2].
 
