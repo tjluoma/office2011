@@ -214,7 +214,7 @@ fi
 #
 
 for DMG in 	X18-08827.dmg \
-			Office2011-1436Update_EN-US.dmg \
+			Office2011-1439Update_EN-US.dmg \
 			MERP_229.dmg \
 			AutoUpdate_236.dmg
 do
@@ -310,15 +310,17 @@ case "${DMG}" in
 		THIS_IS_OFFICE_INSTALLER='yes'
 	;;
 
-	Office2011-1436Update_EN-US.dmg)
-		FULL_NAME='Microsoft Office for Mac 2011 14.3.6 Update'
-		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=39634'
-		RECEIPT='com.microsoft.office.all.core.pkg.14.3.6.update'
-		DL_URL='http://download.microsoft.com/download/F/A/2/FA2FBEE4-A7F9-4E59-8474-C580E2CBE412/Office2011-1436Update_EN-US.dmg'
-		BYTES='118568321'
-		SUM='36dfc8abb3a4fd408d78910b308642482bdeb6035de88de63efdbd9e22e60e01'
+
+	Office2011-1439Update_EN-US.dmg)
+		FULL_NAME='Microsoft Office for Mac 2011 14.3.9 Update'
+		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=41155'
+		RECEIPT='com.microsoft.office.all.core.pkg.14.3.9.update'
+		DL_URL='http://download.microsoft.com/download/E/C/6/EC6221F3-463C-46FF-8365-8784A67D7872/Office2011-1439Update_EN-US.dmg'
+		BYTES='118839106'
+		SUM='9e10855139ae39de7118485e2bf45b93ad0a82e67d351040bd972ce603040129'
 		MIN_VERSION='14.1.0'
 	;;
+
 
 	MERP_229.dmg)
 		FULL_NAME='Microsoft Error Reporting for Mac 2.2.9 Update'
@@ -432,9 +434,14 @@ if [[ ! -e "${DMG}" ]]
 then
 		echo "$NAME: Install file (${DMG}) not found. Attempting to download..."
 
-		CURL_OUT=$(curl --silent --location --fail --dump-header - --remote-name "$DL_URL" | tr -d '\r')
+		# 2013-12-21 - changed this because --silent means we don't get a progress meter
+		# CURL_OUT=$(curl --silent --location --fail --dump-header - --remote-name "$DL_URL" | tr -d '\r')
 
-		echo "${CURL_OUT}" | fgrep -q 'HTTP/1.1 200 OK'
+		curl --location --fail --dump-header "$CURL_HEADERS" --remote-name "$DL_URL" | tr -d '\r'
+		CURL_HEADERS="$DL_URL:t:r.log"
+
+
+		fgrep -q 'HTTP/1.1 200 OK' "$CURL_HEADERS"
 
 		if [ "$?" != "0" ]
 		then
