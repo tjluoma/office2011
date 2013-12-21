@@ -301,7 +301,7 @@ else # if NOT 'launchword'
 
 case "${DMG}" in
 	X18-08827.dmg)
-		FULL_NAME='Microsoft Office 2001 (SP2)'
+		FULL_NAME='Microsoft Office 2011 (SP2)'
 		MORE_INFO='http://www.heidoc.net/joomla/technology-science/microsoft/61-office-2011-for-mac-direct-download-links'
 		RECEIPT='com.microsoft.office.all.slt_std.pkg.14.2.0'
 		DL_URL='http://msft.digitalrivercontent.net/mac/X18-08827.dmg'
