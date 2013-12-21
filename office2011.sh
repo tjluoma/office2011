@@ -555,6 +555,8 @@ fi
 	# but the window will be there when they switch to Finder
 open -g -a Finder "/Applications/Microsoft Office 2011"
 
+	# Run the updater to make sure we haven't missed anything
+open -g -a "Microsoft AutoUpdate.app" || open -g -a "/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app"
 
 exit 0
 
