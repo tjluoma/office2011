@@ -214,9 +214,9 @@ fi
 #
 
 for DMG in 	X18-08827.dmg \
-			Office2011-1439Update_EN-US.dmg \
 			MERP_229.dmg \
-			AutoUpdate_236.dmg
+			AutoUpdate_236.dmg \
+			Office2011-1439Update_EN-US.dmg
 do
 
 MIN_VERSION=''
@@ -527,6 +527,34 @@ fi # MNT = ""
 fi # if/else 'launchword'
 
 done # for / do loop
+
+
+
+if (( $+commands[terminal-notifier] ))
+then
+
+	terminal-notifier \
+				-sender com.microsoft.word \
+				-message "Click to reveal in Finder" \
+				-title "Office 2011 Installed" \
+				-open "file:///Applications/Microsoft Office 2011"
+else
+			# IF terminal-notifier is not installed
+			# BUT Growl.app is running
+			# AND `growlnotify` exists,
+			# THEN show a Growl notification
+		ps cx | fgrep -q Growl && test -x `which growlnotify` && \
+			growlnotify --sticky \
+				--appIcon "Microsoft Word"  \
+				--identifier "$NAME"  \
+				--message "Switch to Finder to see Office apps folder."  \
+				--title "Office 2011 Installed"
+fi
+
+	# The -g prevents Finder from "stealing focus"
+	# but the window will be there when they switch to Finder
+open -g -a Finder "/Applications/Microsoft Office 2011"
+
 
 exit 0
 
