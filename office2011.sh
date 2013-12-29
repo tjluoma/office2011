@@ -152,6 +152,7 @@ else
 
 						# File is smaller than expected, try continuing download
 						curl \
+							--progress-bar \
 							--location --max-time 3600 --fail \
 							--output "${DMG_TO_VERIFY}" --continue-at - \
 							--user-agent "curl/7.21.7 (x86_64-apple-darwin10.8.0) libcurl/7.21.7 OpenSSL/1.0.0d zlib/1.2.5 libidn/1.22" \
@@ -455,7 +456,7 @@ then
 
 		CURL_HEADERS="$DL_URL:t:r.log"
 
-		curl --location --fail --dump-header "$CURL_HEADERS" --remote-name "$DL_URL"  2>&1 | tr -d '\r' | tee -a "$LOG"
+		curl --progress-bar --location --fail --dump-header "$CURL_HEADERS" --remote-name "$DL_URL"  2>&1 | tr -d '\r' | tee -a "$LOG"
 
 		fgrep -q 'HTTP/1.1 200 OK' "$CURL_HEADERS"
 
