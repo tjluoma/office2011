@@ -81,6 +81,37 @@ which will move *back* any files which do not exist in /private/var/db/receipts/
 
 Any com.microsoft.* files which remain in your ~/Desktop/ would be duplicates, and can (probably) be safely moved to the trash.
 
+
+### GUI Installer ###
+
+**Update 2013-12-29:** [office2011.sh][11] has been significantly updated, and I have verified that [the Installer](https://github.com/tjluoma/office2011/raw/master/Installer.zip) works on a clean installation which has never had Office installed before.
+
+The installer application is an Automator application and not officially signed, you will see this warning if/when you try to launch it:
+
+![](images/01-Install-Office-2011-Cant-Be-Opened.png)
+
+Rather than change your security settings, you can simply elect to open the application by selecting it and then control-click (or right-click) to bring up this  contextual menu:
+
+![](images/02-Install-Office-2011-Control-Click-Open.png)
+
+Choose "Open" from those options, and it will confirm yet again:
+
+![](images/03-Install-Office-2011-Is-From-Unidentified-Developer.png)
+
+Once you choose "Open" from the above the menu, the application will run, and you will not have to authorize it again on that computer.
+
+The application will then download the latest version of [office2011.sh][11] to `~/Downloads/office2011.sh` and run it to download and install Office 2011 files, if necessary. The downloads will be saved to **~/Downloads/Office2011/** and that folder can be moved to other Macs (as long as it is put at **~/Downloads/Office2011/**) and the installer can be re-run without having to download the DMGs.
+
+To install the various packages requires your administrator password, but only once per installation. Because the necessary downloads can exceed 1 GB *and* because you will need to enter your administrator password, it will prompt you before it starts to explain:
+
+![](images/04-Install-Office-2011-Will-Download-And-Install.png)
+
+Finally you will see the usual authentication window asking for your name and password:
+
+![](images/05-osascript-wants-your-password.png)
+
+Once the script is downloaded and begins to run, a log file will be created in **~/Library/Logs/** (the standard OS X location for log files), and that log file will be opened in the standard **/Applications/Utilities/Console.app** application so that you can watch the installation's progress.
+
 <!-- Reference Links -->
 
 [1]: http://www.heidoc.net/joomla/technology-science/microsoft/61-office-2011-for-mac-direct-download-links
@@ -94,6 +125,8 @@ Any com.microsoft.* files which remain in your ~/Desktop/ would be duplicates, a
 [5]: https://raw.github.com/tjluoma/office2011/master/all-office-files.mmd
 
 [6]: https://raw.github.com/tjluoma/office2011/master/all-office-files.html
+
+[11]: https://github.com/tjluoma/office2011/blob/master/office2011.sh
 
 [666]: https://raw.github.com/tjluoma/office2011/master/uninstall_office2011.sh
 
