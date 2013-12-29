@@ -16,6 +16,7 @@
 DIR="$HOME/Downloads/Office2011"
 
 
+
 	# Set INDEX='yes' if you want to make an index of files on your hard drive before/after each install
 INDEX='no'
 
@@ -48,9 +49,27 @@ INDEX='no'
 #
 ####|####|####|####|####|####|####|####|####|####|####|####|####|####|####
 
-
+umask 022
 
 NAME="$0:t:r"
+
+LOG="$HOME/Library/Logs/$NAME.log"
+	[[ ! -d "$LOG:h" ]] 	&& mkdir -p "$LOG:h"	# create the parent directory where the LOG will be stored, iff it doesn't exist
+	[[ ! -e "$LOG" ]] 	&& touch "$LOG"			# 'touch' the logfile, iff it doesn't exist
+
+chmod a+r "$LOG"
+
+zmodload zsh/datetime # initialize a time module so we an avoid calling `date`
+
+function timestamp { strftime "%Y-%m-%d @ %H:%M:%S" "$EPOCHSECONDS" }
+
+function msg { echo "$NAME [`timestamp`]: $@" | tee -a "$LOG" }
+
+function version { echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'; }
+
+msg "Starting"
+
+open -F -n -a Console "$LOG"
 
 	# This is the file that we'll look for to see a) if Office is
 	# installed, and b) if so, what version.
@@ -65,11 +84,7 @@ MSWORD_INFO_PLIST='/Applications/Microsoft Office 2011/Microsoft Word.app/Conten
 RECEIPTS_DIR='/private/var/db/receipts'
 
 
-zmodload zsh/datetime # initialize a time module so we an avoid calling `date`
 
-function timestamp { strftime %Y-%m-%d--%H.%M.%S "$EPOCHSECONDS" }
-
-function version { echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'; }
 
 
 	# This function is meant to mount a DMG (the filename must be given as
@@ -107,17 +122,17 @@ DMG_TO_VERIFY="$@"
 
 if [[ "$DL_URL" == "" ]]
 then
-		echo "[verify_dmg]: Cannot verify $DMG_TO_VERIFY, URL is empty."
+		msg "Cannot verify $DMG_TO_VERIFY, URL is empty."
 		return 1
 
 elif [[ "$SUM" == "" ]]
 then
-		echo "[verify_dmg]: Cannot verify $DMG_TO_VERIFY, SUM is empty."
+		msg "Cannot verify $DMG_TO_VERIFY, SUM is empty."
 		return 1
 
 elif [[ "$BYTES" == "" ]]
 then
-		echo "[verify_dmg]: Cannot verify $DMG_TO_VERIFY, BYTES is empty."
+		msg "Cannot verify $DMG_TO_VERIFY, BYTES is empty."
 		return 1
 else
 
@@ -127,13 +142,13 @@ else
 
 		if [[ "$FOUND_BYTES" == "$BYTES" ]]
 		then
-				echo "	$NAME [info]: $DMG_TO_VERIFY has the correct byte size"
+				msg "$DMG_TO_VERIFY has the correct byte size"
 		else
 				# size is wrong, but is it too small or too large?
 
 				if [ "$FOUND_BYTES" -lt "$BYTES" ]
 				then
-						echo "	$NAME: $DMG_TO_VERIFY is smaller than expected. An attempt will be made to continue downloading the DMG from $DL_URL..."
+						msg "$DMG_TO_VERIFY is smaller than expected. An attempt will be made to continue downloading the DMG from $DL_URL..."
 
 						# File is smaller than expected, try continuing download
 						curl \
@@ -141,13 +156,13 @@ else
 							--output "${DMG_TO_VERIFY}" --continue-at - \
 							--user-agent "curl/7.21.7 (x86_64-apple-darwin10.8.0) libcurl/7.21.7 OpenSSL/1.0.0d zlib/1.2.5 libidn/1.22" \
 							--referer ";auto" \
-							"$DL_URL" || return 1
+							"$DL_URL" 2>&1 | tee -a "$LOG" || return 1
 
 
 				else
 						# If we got here, then we have a file which is larger than it should be!
 
-						echo "$NAME:	$DMG_TO_VERIFY was expected to be $BYTES bytes but is $FOUND_BYTES bytes instead! I recommend that you move $DMG_TO_VERIFY to the trash and try again."
+						msg "$DMG_TO_VERIFY was expected to be $BYTES bytes but is $FOUND_BYTES bytes instead! I recommend that you move $DMG_TO_VERIFY to the trash and try again."
 
 						return 1
 
@@ -161,15 +176,15 @@ if [ -e "$DMG_TO_VERIFY" ]
 then
 		# check the SUM
 
-		echo "$NAME: Verifying shasum 256 of $DMG_TO_VERIFY. This may take a few moments, please be patient:"
+		msg "Verifying shasum 256 of $DMG_TO_VERIFY. This may take a few moments, please be patient:"
 
 		ACTUAL_SUM=$(shasum -a 256 -p "$DMG_TO_VERIFY" | awk '{print $1}')
 
 		if [ "$SUM" = "$ACTUAL_SUM" ]
 		then
-				echo "$DMG_TO_VERIFY checksum verified"
+				msg "$DMG_TO_VERIFY checksum verified"
 		else
-				echo "$DMG_TO_VERIFY checksum FAILED: is not what was expected: $ACTUAL_SUM (actual)\n$SUM (expected)"
+				msg "$DMG_TO_VERIFY checksum FAILED: is not what was expected: $ACTUAL_SUM (actual)\n$SUM (expected)"
 				return 1
 		fi
 
@@ -188,22 +203,22 @@ fi
 
 if [[ ! -d "$DIR" ]]
 then
-		echo "	$NAME: Failed to create DIR at: $DIR"
+		msg "Failed to create DIR at: $DIR"
 		exit 1
 fi
 
-LOG="$HOME/Library/Logs/$NAME.log"
-	[[ ! -d "$LOG:h" ]] 	&& mkdir -p "$LOG:h"	# create the parent directory where the LOG will be stored, iff it doesn't exist
-	[[ ! -e "$LOG" ]] 	&& touch "$LOG"			# 'touch' the logfile, iff it doesn't exist
+	# make sure everyone can read and execute (open) the directory
+chmod a+rx "$DIR"
 
 	# Now we need to chdir into the directory where the DMGs are, or will be stored.
 cd "$DIR"
 
 if [ "$PWD" != "$DIR" ]
 then
-		echo "	$NAME: failed to chdir to $DIR (we are in $PWD). Giving up."
+		msg "failed to chdir to $DIR (we are in $PWD). Giving up."
 		exit 1
 fi
+
 
 ####|####|####|####|####|####|####|####|####|####|####|####|####|####|####
 #
@@ -225,7 +240,7 @@ THIS_IS_OFFICE_INSTALLER='no'
 if [[ "${DMG}" = "launchword" ]]
 then
 		# This is a special case. If the user puts 'launchword' into the
-		# list of DMGs (in the "for DMG in …" list) then MSWord will launch
+		# list of DMGs (in the "for DMG in " list) then MSWord will launch
 		# when it gets to that entry in the 'for' loop.
 
 		# At some point in the past, Office would not install one of its
@@ -239,7 +254,7 @@ then
 	if [ "$INDEX" = "yes" ]
 	then
 
-		echo "$NAME @ `timestamp`: making index before Launching Word, please wait..."
+		msg "making index before Launching Word, please wait..."
 		sudo /usr/bin/find -x / -type f -print > filelist.launchword.before.`timestamp`.txt
 	fi
 
@@ -252,8 +267,7 @@ then
 	[[ -e "$SND" ]] && afplay "$SND"
 	[[ -e "$SND" ]] && afplay "$SND"
 
-	echo "\n\n $NAME: You must launch Microsoft Word and either fill in activation information or start demo before proceeding. \n\n"
-	echo -n "$NAME: You must quit Microsoft Word before this script will continue (paused): "
+	msg "You must quit Microsoft Word before this script will continue."
 
 	open -W -a 'Microsoft Word'
 
@@ -261,7 +275,7 @@ then
 	if [ "$INDEX" = "yes" ]
 	then
 
-		echo "$NAME @ `timestamp`: making index AFTER launching Word, please wait..."
+		msg "making index AFTER launching Word"
 		sudo /usr/bin/find -x / -type f -print > filelist.launchword.after.`timestamp`.txt
 	fi
 
@@ -351,8 +365,7 @@ esac
 #		This is where we start to do the actual processing of the DMGs listed in the 'for' loop above
 #
 
-
-echo "\n\n$NAME: Starting $DMG:"
+msg "Starting $DMG"
 
 if [ -e "$MSWORD_INFO_PLIST" ]
 then
@@ -365,7 +378,7 @@ then
 		if [ "$THIS_IS_OFFICE_INSTALLER" = "yes" ]
 		then
 					# if this DMG is the primary Office installer, but Office is already installed, skip it
-				echo "	$NAME: cannot install $DMG because it is the Office Installer and Office is already installed!"
+				msg "cannot install $DMG because it is the Office Installer and Office is already installed!"
 
 				continue
 		fi
@@ -383,7 +396,7 @@ else
 					# Office Installer) and Office 2011 is not installed,
 					# then we have to skip this DMG
 
-				echo "	$NAME: cannot install $DMG until Office 2011 base installation is complete."
+				msg "Cannot install $DMG until Office 2011 base installation is complete."
 				continue
 		fi
 
@@ -399,7 +412,8 @@ fi # if MSWORD_INFO_PLIST exists
 	#
 if [ -s "${RECEIPTS_DIR}/${RECEIPT}.plist" -a  -s "${RECEIPTS_DIR}/${RECEIPT}.bom" ]
 then
-		echo "	$NAME: Skipping installation of $DMG because receipts already exist in $RECEIPTS_DIR/. (It is already installed.)"
+		msg "Skipping $DMG because it is already installed ${RECEIPTS_DIR}."
+
 		continue
 fi
 
@@ -408,17 +422,21 @@ fi
 	#		Check to make sure we meet the minimum requirements
 	#
 
+
+
+
+
+
 if [ "$MIN_VERSION" = "" ]
 then
-		echo "$NAME: No MIN_VERSION set for $DMG"
+		msg "No MIN_VERSION set for $DMG"
 else
-		if [ $(version $INSTALLED_VERSION) -lt $(version $MIN_VERSION) ]
+		if [ $(version ${INSTALLED_VERSION}) -ge $(version ${MIN_VERSION}) ]
 		then
-				echo "NAME: Cannot install $DMG because installed version of Office ($INSTALLED_VERSION) does not meet minimum requirement of $MIN_VERSION"
-
-				continue
+				msg "Installed version ($INSTALLED_VERSION) meets minimum required version ($MIN_VERSION) for $DMG"
 		else
-				echo "$NAME: Installed version ($INSTALLED_VERSION) meets minimum required version ($MIN_VERSION) for $DMG"
+				msg "Cannot install $DMG because installed version of Office ($INSTALLED_VERSION) does not meet minimum requirement of $MIN_VERSION"
+				continue
 		fi
 
 fi
@@ -432,29 +450,30 @@ fi
 
 if [[ ! -e "${DMG}" ]]
 then
-		echo "$NAME: Install file (${DMG}) not found. Attempting to download..."
 
-		# 2013-12-21 - changed this because --silent means we don't get a progress meter
-		# CURL_OUT=$(curl --silent --location --fail --dump-header - --remote-name "$DL_URL" | tr -d '\r')
+		msg "Fetching $DMG"
 
 		CURL_HEADERS="$DL_URL:t:r.log"
 
-		curl --location --fail --dump-header "$CURL_HEADERS" --remote-name "$DL_URL" | tr -d '\r'
+		curl --location --fail --dump-header "$CURL_HEADERS" --remote-name "$DL_URL"  2>&1 | tr -d '\r' | tee -a "$LOG"
 
 		fgrep -q 'HTTP/1.1 200 OK' "$CURL_HEADERS"
 
 		if [ "$?" != "0" ]
 		then
-				echo "$NAME: did not get STATUS 200 when we attempted to download $DL_URL. Giving up on $DMG."
+				msg "Did not get STATUS 200 when we attempted to download $DL_URL. Giving up on $DMG."
 				continue
 		fi
+
+		msg "Downloaded: $DMG"
+
 fi
 
 	# If we get here and the DMG doesn't exist, something went wrong, so let's skip this one and try the next one
 if [[ ! -e "${DMG}" ]]
 then
 
-		echo "	$NAME: FAILED to find $DMG in $PWD. Giving up and going on to next DMG."
+		msg "FAILED to find $DMG in $PWD. Giving up and going on to next DMG."
 
 		continue
 fi
@@ -464,18 +483,18 @@ fi
 #		If we get here then the DMG exists, so now let's verify that it meets our expectations
 #
 
-echo "	$NAME: verifying $DMG in $PWD..."
+msg "Verifying $DMG in $PWD..."
 
 verify_dmg "$DMG"
 
 if [ "$?" = "1" ]
 then
 
-		echo "verify_dmg returned 1, giving up on $DMG"
+		msg "verify_dmg returned 1, giving up on $DMG"
 		continue
 fi
 
-echo "\n\n$NAME: Installing ${DMG} at `timestamp` \n\n"
+msg "Installing ${DMG} at `timestamp`"
 
 	# mntdmg defined above
 MNT=$(mntdmg "${DMG}")
@@ -483,7 +502,7 @@ MNT=$(mntdmg "${DMG}")
 if [[ "$MNT" = "" ]]
 then
 
-		echo "$NAME: MNT is empty for ${DMG}"
+		msg "MNT is empty for ${DMG}"
 		continue
 
 else
@@ -500,23 +519,24 @@ else
 		if [ "$INDEX" = "yes" ]
 		then
 
-			echo "$NAME @ `timestamp`: making index before installing $DMG, please wait."
+			msg "Making index before installing $DMG, please wait."
 				/usr/bin/find -x / -type f -print 2>/dev/null > "filelist.$DMG.before.`timestamp`.txt"
 		fi
 
-		echo "\n\n$NAME: Starting installation of ${MNT}/*pkg..."
+		msg "Installing $MNT:t"
+
 		sudo installer -verboseR -pkg ${MNT}/*pkg -target / 2>&1 | tee -a "$LOG"
 
 
 		if [ "$INDEX" = "yes" ]
 		then
 
-			echo "$NAME @ `timestamp`: making index AFTER installing $DMG, please wait."
+			msg "Making index AFTER installing $DMG, please wait."
 				/usr/bin/find -x / -type f -print 2>/dev/null > "filelist.$DMG.after.`timestamp`.txt"
 		fi
 
 
-		echo "\n${DMG}	Installed successfully at `timestamp`" | tee -a "$LOG"
+		msg "${DMG} installed successfully at `timestamp`" | tee -a "$LOG"
 
 			# We'll try, at least once, to unmount the DMG. It's not that
 			# big of a deal if this fails, but it's nice to clean up if we can.
@@ -533,7 +553,7 @@ done # for / do loop
 if (( $+commands[terminal-notifier] ))
 then
 
-	terminal-notifier \
+			terminal-notifier \
 				-sender com.microsoft.word \
 				-message "Click to reveal in Finder" \
 				-title "Office 2011 Installed" \
