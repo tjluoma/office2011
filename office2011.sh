@@ -6,6 +6,7 @@
 # Date:	2013-01-31
 # Updated: 2013-07-17
 
+TERM=vt100
 
 	# This is the only thing you should have to change.
 	# 	Where are the installation files located,
