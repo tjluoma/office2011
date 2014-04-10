@@ -15,13 +15,25 @@ The `office2011.sh`  script will look for certain DMG files in a particular fold
 
 Here are the current (as of 2014-04-10) files which it looks for:
 
-1.	`X18-08827.dmg` - this is the base installer for Microsoft Office 2011 "SP2" (aka version 14.2.0). It must be installed before anything else. You can find out more about it at [heidoc.net][1]. If this file is not found it will be downloaded from [msft.digitalrivercontent.net][], Microsoft's official digital store.
+* [Microsoft Office 2011 (SP2)](http://www.heidoc.net/joomla/technology-science/microsoft/61-office-2011-for-mac-direct-download-links)
+	* [X18-08827.dmg](http://msft.digitalrivercontent.net/mac/X18-08827.dmg)
+	* Size (Bytes): 1,036,923,510 (1.03 GB)
+	* SHA256: d74534a8af3b88e0b53403eba033d77081b84c4826f0e78ec69094fb3e45d8de
 
-2. `MERP_229.dmg` - This is 'Microsoft Error Reporting for Mac 2.2.9 Update.' If this file is not found it will be [downloaded from Microsoft][2].
+* [Microsoft Office for Mac 2011 14.4.1 Update](http://www.microsoft.com/en-us/download/details.aspx?id=42373)
+	* [Office2011-1441Update_EN-US.dmg](http://download.microsoft.com/download/A/6/9/A69FE062-D726-456E-A8AA-B1D2A292300E/Office2011-1441Update_EN-US.dmg)
+	* Size (Bytes): 118,984,586 (118.98 MB)
+	* SHA256: 340ff8b731c89f103927db4a2571fa81c9fcb0dc683f394919fda12bfc793af7
 
-3. `	AutoUpdate_236.dmg` - This is 'Microsoft AutoUpdate for Mac 2.3.6 Update'. If this file is not found it will be [downloaded from Microsoft][3].
+* [Microsoft Error Reporting for Mac 2.2.9 Update](http://www.microsoft.com/en-us/download/details.aspx?id=35382)
+	* [MERP_229.dmg](http://download.microsoft.com/download/B/F/B/BFB8DEB8-91CD-4722-AE6F-476C4013CFFC/MERP_229.dmg)
+	* Size (Bytes): 1,600,542 (1.60 MB)
+	* SHA256: 221400b62d452fd30865c77a9a67441df6fab77417a9e4ea2084922763da8a1b
 
-4. 	`Office2011-1441Update_EN-US.dmg` - This is "Microsoft Office for Mac 2011 14.4.1 Update" . If this file is not found it will be [downloaded from Microsoft][4]. When Microsoft issues a new updater, this will be replaced with that one (assuming that it does not require this as a prerequisite.)
+* [Microsoft AutoUpdate for Mac 2.3.6 Update](http://www.microsoft.com/en-us/download/details.aspx?id=35381)
+	* [AutoUpdate_236.dmg](http://download.microsoft.com/download/B/0/D/B0DB40D2-FF90-4633-925A-B8A7D4183279/AutoUpdate_236.dmg)
+	* Size (Bytes): 930,369 (930.36 KB)
+	* SHA256: 80d9b48fa89847797e166811b9deb7a0cfaff48a989ac8aa2aaf56bca55c1855
 
 The script is smart enough to check whether minimum requirements are met, and will also check to make sure that it does not install something which has already been installed. It will also checksum the DMGs using `shasum -a 256` to make sure that the files have not been altered or tampered with.
 
