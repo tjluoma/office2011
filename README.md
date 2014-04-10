@@ -21,7 +21,7 @@ Here are the current (as of 2013-07-23) files which it looks for:
 
 3. `	AutoUpdate_236.dmg` - This is 'Microsoft AutoUpdate for Mac 2.3.6 Update'. If this file is not found it will be [downloaded from Microsoft][3].
 
-4. 	`Office2011-1441Update_EN-US.dmg` - This is "Microsoft Office for Mac 2011 14.3.6 Update" . If this file is not found it will be [downloaded from Microsoft][4]. When Microsoft issues a new updater, this will be replaced with that one (assuming that it does not require this as a prerequisite.)
+4. 	`Office2011-1441Update_EN-US.dmg` - This is "Microsoft Office for Mac 2011 14.4.1 Update" . If this file is not found it will be [downloaded from Microsoft][4]. When Microsoft issues a new updater, this will be replaced with that one (assuming that it does not require this as a prerequisite.)
 
 The script is smart enough to check whether minimum requirements are met, and will also check to make sure that it does not install something which has already been installed. It will also checksum the DMGs using `shasum -a 256` to make sure that the files have not been altered or tampered with.
 
