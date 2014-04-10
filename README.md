@@ -13,7 +13,7 @@ A shell script to (download, if necessary) and install Office:Mac 2011 and any k
 
 The `office2011.sh`  script will look for certain DMG files in a particular folder in your hard drive (by default it will use ~/Downloads/Office2011/ but it will use another folder if you change the `DIR="$HOME/Downloads/Office2011"` line near the top of the script.
 
-Here are the current (as of 2013-07-23) files which it looks for:
+Here are the current (as of 2014-04-10) files which it looks for:
 
 1.	`X18-08827.dmg` - this is the base installer for Microsoft Office 2011 "SP2" (aka version 14.2.0). It must be installed before anything else. You can find out more about it at [heidoc.net][1]. If this file is not found it will be downloaded from [msft.digitalrivercontent.net][], Microsoft's official digital store.
 
