@@ -21,7 +21,7 @@ Here are the current (as of 2013-07-23) files which it looks for:
 
 3. `	AutoUpdate_236.dmg` - This is 'Microsoft AutoUpdate for Mac 2.3.6 Update'. If this file is not found it will be [downloaded from Microsoft][3].
 
-4. 	`Office2011-1436Update_EN-US.dmg` - This is "Microsoft Office for Mac 2011 14.3.6 Update" . If this file is not found it will be [downloaded from Microsoft][4]. When Microsoft issues a new updater, this will be replaced with that one (assuming that it does not require this as a prerequisite.)
+4. 	`Office2011-1441Update_EN-US.dmg` - This is "Microsoft Office for Mac 2011 14.3.6 Update" . If this file is not found it will be [downloaded from Microsoft][4]. When Microsoft issues a new updater, this will be replaced with that one (assuming that it does not require this as a prerequisite.)
 
 The script is smart enough to check whether minimum requirements are met, and will also check to make sure that it does not install something which has already been installed. It will also checksum the DMGs using `shasum -a 256` to make sure that the files have not been altered or tampered with.
 
@@ -74,7 +74,7 @@ It occurs to me that a *slightly less stupid idea* would be to do:
 which will *move* the files out of the receipts folder onto your Desktop. That way you still have them. After you have reinstalled, you can do this:
 
 		cd ~/Desktop
-		
+
 		sudo mv -vn com.microsoft.* /private/var/db/receipts/
 
 which will move *back* any files which do not exist in /private/var/db/receipts/ so if you *did* happen to move Microsoft-but-not-Office-related receipts, you can restore them.
@@ -120,7 +120,7 @@ Once the script is downloaded and begins to run, a log file will be created in *
 
 [3]: http://www.microsoft.com/en-us/download/details.aspx?id=35381
 
-[4]: http://www.microsoft.com/en-us/download/details.aspx?id=39634
+[4]: http://www.microsoft.com/en-us/download/details.aspx?id=42373
 
 [5]: https://raw.github.com/tjluoma/office2011/master/all-office-files.mmd
 
