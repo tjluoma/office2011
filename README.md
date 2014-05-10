@@ -3,6 +3,17 @@ office2011
 
 A shell script to (download, if necessary) and install Office:Mac 2011 and any known updates without any user intervention.
 
+
+## TEMPORARY WARNING:
+
+According to <http://www.heidoc.net/joomla/technology-science/microsoft/61-office-2011-for-mac-direct-download-links> 
+
+> Downloads have not been consistently available during the past few weeks. Files disappear and come back at irregular intervals. To avoid broken downloads, we generally advise the use of a download manager.
+
+That was posted on April 2014. As of May 10th, <http://azcdn01.digitalrivercontent.net/mac/X18-08827.dmg> is still unreliable. 
+
+If you need to acquire the file, you can try Google. The script verifies the file using `shasum -a 256` so if the file has been tampered with or altered, the script will know and will refuse to continue the installation. (You’re welcome :-)
+
 ## Before we begin… ##
 
 1. Let me make it clear that this script is not officially endorsed (suggested, recommended, or any such words like that) by Microsoft. In fact I'm fairly sure Microsoft does not even know that I am alive. All trademarks are used solely for identification.
