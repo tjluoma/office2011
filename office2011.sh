@@ -322,9 +322,9 @@ case "${DMG}" in
 		MORE_INFO='http://www.heidoc.net/joomla/technology-science/microsoft/61-office-2011-for-mac-direct-download-links'
 		RECEIPT='com.microsoft.office.all.slt_std.pkg.14.2.0'
 		#DL_URL='http://msft.digitalrivercontent.net/mac/X18-08827.dmg'
-		DL_URL='http://azcdn01.digitalrivercontent.net/mac/X18-08827.dmg'
-		BYTES='1036923510'
-		SUM='d74534a8af3b88e0b53403eba033d77081b84c4826f0e78ec69094fb3e45d8de'
+		DL_URL='https://drcdn.blob.core.windows.net/mac/X18-08827.dmg'
+		BYTES='1013686365'
+		SUM='64117b06e3067a2e4184aa449ced305ccec0e137df27179084b01ede500f0527'
 		THIS_IS_OFFICE_INSTALLER='yes'
 	;;
 
