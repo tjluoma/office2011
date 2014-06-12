@@ -232,7 +232,9 @@ fi
 for DMG in 	X18-08827.dmg \
 			MERP_229.dmg \
 			AutoUpdate_236.dmg \
-			Office2011-1441Update_EN-US.dmg
+			Office2011-1442Update_EN-US.dmg
+
+
 do
 
 MIN_VERSION=''
@@ -327,15 +329,28 @@ case "${DMG}" in
 	;;
 
 
-	Office2011-1441Update_EN-US.dmg)
-		FULL_NAME='Microsoft Office for Mac 2011 14.4.1 Update'
-		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=42373'
-		RECEIPT='com.microsoft.office.all.core.pkg.14.4.1.update'
-		DL_URL='http://download.microsoft.com/download/A/6/9/A69FE062-D726-456E-A8AA-B1D2A292300E/Office2011-1441Update_EN-US.dmg'
-		BYTES='118984586'
-		SUM='340ff8b731c89f103927db4a2571fa81c9fcb0dc683f394919fda12bfc793af7'
+#	Office2011-1441Update_EN-US.dmg)
+#		FULL_NAME='Microsoft Office for Mac 2011 14.4.1 Update'
+#		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=42373'
+#		RECEIPT='com.microsoft.office.all.core.pkg.14.4.1.update'
+#		DL_URL='http://download.microsoft.com/download/A/6/9/A69FE062-D726-456E-A8AA-B1D2A292300E/Office2011-1441Update_EN-US.dmg'
+#		BYTES='118984586'
+#		SUM='340ff8b731c89f103927db4a2571fa81c9fcb0dc683f394919fda12bfc793af7'
+#		MIN_VERSION='14.1.0'
+#	;;
+
+
+	Office2011-1442Update_EN-US.dmg)
+		FULL_NAME='Microsoft Office for Mac 2011 14.4.2 Update'
+		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=43104'
+		RECEIPT='com.microsoft.office.all.core.pkg.14.4.2.update'
+		DL_URL='http://download.microsoft.com/download/4/B/0/4B01A8A2-795C-4F3E-90E6-2E5FCE6A72A6/Office2011-1442Update_EN-US.dmg'
+		BYTES='119025759'
+		SUM='e0123bcef3cf1b939cbfce39fe3517b5c7874eb8d77cbf2d8bbb62145337b407'
 		MIN_VERSION='14.1.0'
 	;;
+
+
 
 
 	MERP_229.dmg)
