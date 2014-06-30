@@ -4,7 +4,7 @@
 # From:	Timothy J. Luoma
 # Mail:	luomat at gmail dot com
 # Date:	2013-01-31
-# Updated: 2013-07-17
+# Updated: 2014-06-30 for 14.4.3
 
 
 	# This is the only thing you should have to change.
@@ -232,8 +232,7 @@ fi
 for DMG in 	X18-08827.dmg \
 			MERP_229.dmg \
 			AutoUpdate_236.dmg \
-			Office2011-1442Update_EN-US.dmg
-
+			Office2011-1443Update_EN-US.dmg
 
 do
 
@@ -329,28 +328,15 @@ case "${DMG}" in
 	;;
 
 
-#	Office2011-1441Update_EN-US.dmg)
-#		FULL_NAME='Microsoft Office for Mac 2011 14.4.1 Update'
-#		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=42373'
-#		RECEIPT='com.microsoft.office.all.core.pkg.14.4.1.update'
-#		DL_URL='http://download.microsoft.com/download/A/6/9/A69FE062-D726-456E-A8AA-B1D2A292300E/Office2011-1441Update_EN-US.dmg'
-#		BYTES='118984586'
-#		SUM='340ff8b731c89f103927db4a2571fa81c9fcb0dc683f394919fda12bfc793af7'
-#		MIN_VERSION='14.1.0'
-#	;;
-
-
-	Office2011-1442Update_EN-US.dmg)
-		FULL_NAME='Microsoft Office for Mac 2011 14.4.2 Update'
-		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=43104'
-		RECEIPT='com.microsoft.office.all.core.pkg.14.4.2.update'
-		DL_URL='http://download.microsoft.com/download/4/B/0/4B01A8A2-795C-4F3E-90E6-2E5FCE6A72A6/Office2011-1442Update_EN-US.dmg'
-		BYTES='119025759'
-		SUM='e0123bcef3cf1b939cbfce39fe3517b5c7874eb8d77cbf2d8bbb62145337b407'
+	Office2011-1443Update_EN-US.dmg)
+		FULL_NAME='Microsoft Office for Mac 2011 14.4.3 Update'
+		MORE_INFO='http://support.microsoft.com/kb/2978808'
+		RECEIPT='com.microsoft.office.all.core.pkg.14.4.3.update'
+		DL_URL=http://download.microsoft.com/download/D/A/D/DAD7491B-5FA0-49BB-9BC5-84F43F46152E/Office2011-1443Update_EN-US.dmg'
+		BYTES='119013374'
+		SUM='ab12fa14f09004509113eb112418726b6bac21e6a045229c8a174c2b766301c7'
 		MIN_VERSION='14.1.0'
 	;;
-
-
 
 
 	MERP_229.dmg)
