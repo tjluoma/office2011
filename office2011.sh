@@ -332,7 +332,7 @@ case "${DMG}" in
 		FULL_NAME='Microsoft Office for Mac 2011 14.4.3 Update'
 		MORE_INFO='http://support.microsoft.com/kb/2978808'
 		RECEIPT='com.microsoft.office.all.core.pkg.14.4.3.update'
-		DL_URL=http://download.microsoft.com/download/D/A/D/DAD7491B-5FA0-49BB-9BC5-84F43F46152E/Office2011-1443Update_EN-US.dmg'
+		DL_URL='http://download.microsoft.com/download/D/A/D/DAD7491B-5FA0-49BB-9BC5-84F43F46152E/Office2011-1443Update_EN-US.dmg'
 		BYTES='119013374'
 		SUM='ab12fa14f09004509113eb112418726b6bac21e6a045229c8a174c2b766301c7'
 		MIN_VERSION='14.1.0'
