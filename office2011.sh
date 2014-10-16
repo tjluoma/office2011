@@ -4,7 +4,8 @@
 # From:	Timothy J. Luoma
 # Mail:	luomat at gmail dot com
 # Date:	2013-01-31
-# Updated: 2014-06-30 for 14.4.3
+# Updated: 2014-10-15 for 14.4.5
+
 
 
 	# This is the only thing you should have to change.
@@ -328,13 +329,13 @@ case "${DMG}" in
 	;;
 
 
-	Office2011-1444Update_EN-US.dmg)
-		FULL_NAME='Microsoft Office for Mac 2011 14.4.4 Update'
-		MORE_INFO='http://support.microsoft.com/kb/2994002'
-		RECEIPT='com.microsoft.office.all.core.pkg.14.4.4.update'
-		DL_URL='http://download.microsoft.com/download/E/E/8/EE8A5C59-3F2E-4FA9-A154-469D670FC6C0/Office2011-1444Update_EN-US.dmg'
-		BYTES='119009190'
-		SUM='ee39aa0d770d26391c125944c7d92363af0a0d337b190a54db68d5274d3a5379'
+	Office2011-1445Update_EN-US.dmg)
+		FULL_NAME='Microsoft Office for Mac 2011 14.4.5 Update'
+		MORE_INFO='http://support.microsoft.com/kb/3004865'
+		RECEIPT='com.microsoft.office.all.core.pkg.14.4.5.update'
+		DL_URL='http://download.microsoft.com/download/7/1/B/71BD2241-B874-45B3-9034-5DEC608D73DD/Office2011-1445Update_EN-US.dmg'
+		BYTES='119122712'
+		SUM='7d5c3bfde73026981b9fa20cabc28e24a99d40dd924d6b2c6256545664f97843'
 		MIN_VERSION='14.1.0'
 	;;
 
