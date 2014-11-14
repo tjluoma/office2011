@@ -4,8 +4,9 @@
 # From:	Timothy J. Luoma
 # Mail:	luomat at gmail dot com
 # Date:	2013-01-31
-# Updated: 2014-10-15 for 14.4.5
+# Last Updated: 2014-11-13 for 14.4.6
 
+PATH=/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin
 
 
 	# This is the only thing you should have to change.
@@ -329,13 +330,13 @@ case "${DMG}" in
 	;;
 
 
-	Office2011-1445Update_EN-US.dmg)
-		FULL_NAME='Microsoft Office for Mac 2011 14.4.5 Update'
-		MORE_INFO='http://support.microsoft.com/kb/3004865'
-		RECEIPT='com.microsoft.office.all.core.pkg.14.4.5.update'
-		DL_URL='http://download.microsoft.com/download/7/1/B/71BD2241-B874-45B3-9034-5DEC608D73DD/Office2011-1445Update_EN-US.dmg'
-		BYTES='119122712'
-		SUM='7d5c3bfde73026981b9fa20cabc28e24a99d40dd924d6b2c6256545664f97843'
+	Office2011-1446Update_EN-US.dmg)
+		FULL_NAME='Microsoft Office for Mac 2011 14.4.6 Update'
+		MORE_INFO='http://support.microsoft.com/kb/3016338'
+		RECEIPT='com.microsoft.office.all.core.pkg.14.4.6.update'
+		DL_URL='http://download.microsoft.com/download/C/2/F/C2F1F08F-29B7-48F3-80A0-1FE69A057D77/Office2011-1446Update_EN-US.dmg'
+		BYTES='119125728'
+		SUM='6192c55f3eb1f446727eed7716b38f987aa85242284285c5c6285b81ca8556b7'
 		MIN_VERSION='14.1.0'
 	;;
 
