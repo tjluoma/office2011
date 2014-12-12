@@ -100,7 +100,10 @@ function mntdmg {
 	if [ -r "$DMG_TO_MOUNT" -a -f "$DMG_TO_MOUNT" ]
 	then
 
-		MNTPNT=$(hdid -plist "$DMG_TO_MOUNT" | fgrep -A1 '<key>mount-point</key>' | tail -1 | sed 's#</string>.*##g ; s#.*<string>##g')
+		MNTPNT=$(hdiutil attach -nobrowse -plist "$DMG_TO_MOUNT" 2>/dev/null \
+				| fgrep -A 1 '<key>mount-point</key>' \
+				| tail -1 \
+				| sed 's#</string>.*##g ; s#.*<string>##g')
 
 		[[ "$MNTPNT" = "" ]] && return 1
 
@@ -213,13 +216,17 @@ fi
 	# make sure everyone can read and execute (open) the directory
 chmod a+rx "$DIR"
 
-	# Now we need to chdir into the directory where the DMGs are, or will be stored.
-cd "$DIR"
 
-if [ "$PWD" != "$DIR" ]
+if [ "$DIR" != "." ]
 then
-		msg "failed to chdir to $DIR (we are in $PWD). Giving up."
-		exit 1
+		# Now we need to chdir into the directory where the DMGs are, or will be stored.
+	cd "$DIR"
+
+	if [ "$PWD" != "$DIR" ]
+	then
+			msg "failed to chdir to $DIR (we are in $PWD). Giving up."
+			exit 1
+	fi
 fi
 
 
@@ -234,8 +241,7 @@ fi
 for DMG in 	X18-08827.dmg \
 			MERP_229.dmg \
 			AutoUpdate_236.dmg \
-			Office2011-1444Update_EN-US.dmg
-
+			Office2011-1446Update_EN-US.dmg
 do
 
 MIN_VERSION=''
@@ -530,7 +536,7 @@ else
 
 		msg "Installing $MNT:t"
 
-		sudo installer -verboseR -pkg ${MNT}/*pkg -target / 2>&1 | tee -a "$LOG"
+		sudo installer -verbose -pkg ${MNT}/*pkg -target / 2>&1 | tee -a "$LOG"
 
 
 		if [ "$INDEX" = "yes" ]
