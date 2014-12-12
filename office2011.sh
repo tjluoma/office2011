@@ -4,9 +4,9 @@
 # From:	Timothy J. Luoma
 # Mail:	luomat at gmail dot com
 # Date:	2013-01-31
-# Last Updated: 2014-11-13 for 14.4.6
+# Updated: 2014-12-12 updated to 14.4.7
 
-PATH=/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin
+PATH=/usr/bin:/usr/sbin:/sbin:/bin:/usr/local/bin
 
 
 	# This is the only thing you should have to change.
@@ -55,8 +55,17 @@ umask 022
 
 NAME="$0:t:r"
 
-LOG="$HOME/Library/Logs/$NAME.log"
-	[[ ! -d "$LOG:h" ]] 	&& mkdir -p "$LOG:h"	# create the parent directory where the LOG will be stored, iff it doesn't exist
+zmodload zsh/datetime
+
+TIME=$(strftime "%Y-%m-%d--%H.%M.%S" "$EPOCHSECONDS")
+
+HOST=`hostname -s`
+
+HOST="$HOST:l"
+
+LOG="$HOME/Library/Logs/$NAME/$HOST.$TIME.log"
+
+	[[ ! -d "$LOG:h" ]]	&& mkdir -p "$LOG:h"	# create the parent directory where the LOG will be stored, iff it doesn't exist
 	[[ ! -e "$LOG" ]] 	&& touch "$LOG"			# 'touch' the logfile, iff it doesn't exist
 
 chmod a+r "$LOG"
@@ -216,17 +225,13 @@ fi
 	# make sure everyone can read and execute (open) the directory
 chmod a+rx "$DIR"
 
+	# Now we need to chdir into the directory where the DMGs are, or will be stored.
+cd "$DIR"
 
-if [ "$DIR" != "." ]
+if [ "$PWD" != "$DIR" ]
 then
-		# Now we need to chdir into the directory where the DMGs are, or will be stored.
-	cd "$DIR"
-
-	if [ "$PWD" != "$DIR" ]
-	then
-			msg "failed to chdir to $DIR (we are in $PWD). Giving up."
-			exit 1
-	fi
+		msg "failed to chdir to $DIR (we are in $PWD). Giving up."
+		exit 1
 fi
 
 
@@ -238,10 +243,13 @@ fi
 #	This script will attempt to install them in the order they are listed.
 #
 
-for DMG in 	X18-08827.dmg \
-			MERP_229.dmg \
+# 2014-10-01: Verified that MERP_229.dmg and AutoUpdate_236.dmg _do_ need to be installed in addition to 1444Update.
+
+for DMG in \
+			X18-08827.dmg \
+			Office2011-1444Update_EN-US.dmg \
 			AutoUpdate_236.dmg \
-			Office2011-1446Update_EN-US.dmg
+			MERP_229.dmg
 do
 
 MIN_VERSION=''
@@ -336,13 +344,13 @@ case "${DMG}" in
 	;;
 
 
-	Office2011-1446Update_EN-US.dmg)
-		FULL_NAME='Microsoft Office for Mac 2011 14.4.6 Update'
-		MORE_INFO='http://support.microsoft.com/kb/3016338'
-		RECEIPT='com.microsoft.office.all.core.pkg.14.4.6.update'
-		DL_URL='http://download.microsoft.com/download/C/2/F/C2F1F08F-29B7-48F3-80A0-1FE69A057D77/Office2011-1446Update_EN-US.dmg'
-		BYTES='119125728'
-		SUM='6192c55f3eb1f446727eed7716b38f987aa85242284285c5c6285b81ca8556b7'
+	Office2011-1447Update_EN-US.dmg)
+		FULL_NAME='Microsoft Office for Mac 2011 14.4.7 Update'
+		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=45122'
+		RECEIPT='com.microsoft.office.all.core.pkg.14.4.7.update'
+		DL_URL='http://download.microsoft.com/download/5/2/D/52D2575F-ED29-4F33-9028-A03C1DAB9EB3/Office2011-1447Update_EN-US.dmg'
+		BYTES='119129507'
+		SUM='ade11755db8baaf83d753a09b0f0d18357224088f45bb545da2c14293197d009'
 		MIN_VERSION='14.1.0'
 	;;
 
@@ -587,7 +595,7 @@ fi
 open -g -a Finder "/Applications/Microsoft Office 2011"
 
 	# Run the updater to make sure we haven't missed anything
-open -g -a "Microsoft AutoUpdate.app" || open -g -a "/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app"
+open -g -a "/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app"
 
 exit 0
 
