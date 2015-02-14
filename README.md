@@ -30,14 +30,17 @@ Note that *all* downloads come from Microsoft’s official servers. You are not 
 
 The `office2011.sh`  script will look for certain DMG files in a particular folder in your hard drive (by default it will use `~/Downloads/Office2011/` but it will use another folder if you change the `DIR="$HOME/Downloads/Office2011"` line near the top of the script.
 
-Here is the current (as of 2014-11-13) list of what it will install:
+Here is the current (as of 2015-02-14) list of what it will install:
 
 1.  [Microsoft Office 2011 (SP2)][1]
 	* Direct Download: [X18-08827.dmg][2]
+
 2. 	[Microsoft Office for Mac 2011 14.4.6 Update][3]
 	* Direct Download: [Office2011-1446Update_EN-US.dmg][4]
+
 3.	[Microsoft Error Reporting for Mac 2.2.9 Update][5]
 	* Download Download: [MERP_229.dmg][6]
+
 4.	[Microsoft AutoUpdate for Mac 2.3.6 Update][7]
 	* Direct Download: [AutoUpdate_236.dmg][8]
 
@@ -98,9 +101,9 @@ That log file will be opened in the standard **/Applications/Utilities/Console.a
 
 [2]:	https://drcdn.blob.core.windows.net/mac/X18-08827.dmg
 
-[3]:	http://support.microsoft.com/kb/3016338
+[3]:	http://www.microsoft.com/en-us/download/details.aspx?id=45872
 
-[4]:	http://download.microsoft.com/download/C/2/F/C2F1F08F-29B7-48F3-80A0-1FE69A057D77/Office2011-1446Update_EN-US.dmg
+[4]:	http://download.microsoft.com/download/7/8/E/78E0938D-FDC7-4975-99E7-54256FECDE07/Office2011-1448Update_EN-US.dmg
 
 [5]:	http://www.microsoft.com/en-us/download/details.aspx?id=35382
 
