@@ -4,7 +4,7 @@
 # From:	Timothy J. Luoma
 # Mail:	luomat at gmail dot com
 # Date:	2013-01-31
-# Updated: 2014-12-12 updated to 14.4.7
+# Updated: 2015-02-14 updated to 14.4.8
 
 PATH=/usr/bin:/usr/sbin:/sbin:/bin:/usr/local/bin
 
@@ -344,13 +344,13 @@ case "${DMG}" in
 	;;
 
 
-	Office2011-1447Update_EN-US.dmg)
-		FULL_NAME='Microsoft Office for Mac 2011 14.4.7 Update'
-		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=45122'
-		RECEIPT='com.microsoft.office.all.core.pkg.14.4.7.update'
-		DL_URL='http://download.microsoft.com/download/5/2/D/52D2575F-ED29-4F33-9028-A03C1DAB9EB3/Office2011-1447Update_EN-US.dmg'
-		BYTES='119129507'
-		SUM='ade11755db8baaf83d753a09b0f0d18357224088f45bb545da2c14293197d009'
+	Office2011-1448Update_EN-US.dmg)
+		FULL_NAME='Microsoft Office for Mac 2011 14.4.8 Update'
+		MORE_INFO='http://support.microsoft.com/kb/3034381'
+		RECEIPT='com.microsoft.office.all.core.pkg.14.4.8.update'
+		DL_URL='http://download.microsoft.com/download/7/8/E/78E0938D-FDC7-4975-99E7-54256FECDE07/Office2011-1448Update_EN-US.dmg'
+		BYTES='119119105'
+		SUM='f295c8c646a5dfe1f6b5d620411b7cba3d80ebcde26a2c53215d76524c54fe54'
 		MIN_VERSION='14.1.0'
 	;;
 
