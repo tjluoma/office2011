@@ -32,17 +32,13 @@ The `office2011.sh`  script will look for certain DMG files in a particular fold
 
 Here is the current (as of 2015-02-14) list of what it will install:
 
-1.  [Microsoft Office 2011 (SP2)][1]
-	* Direct Download: [X18-08827.dmg][2]
+1.  [Microsoft Office 2011 (SP2)][1] (Direct Download: [X18-08827.dmg][2])
 
-2. 	[Microsoft Office for Mac 2011 14.4.6 Update][3]
-	* Direct Download: [Office2011-1446Update_EN-US.dmg][4]
+2. 	[Microsoft Office for Mac 2011 14.4.8 Update][3] (Direct Download: [Office2011-1448Update_EN-US.dmg][4])
 
-3.	[Microsoft Error Reporting for Mac 2.2.9 Update][5]
-	* Download Download: [MERP_229.dmg][6]
+3.	[Microsoft Error Reporting for Mac 2.2.9 Update][5] (Download Download: [MERP_229.dmg][6])
 
-4.	[Microsoft AutoUpdate for Mac 2.3.6 Update][7]
-	* Direct Download: [AutoUpdate_236.dmg][8]
+4.	[Microsoft AutoUpdate for Mac 2.3.6 Update][7] (Direct Download: [AutoUpdate_236.dmg][8])
 
 The script is intended to be smart enough to check whether minimum requirements are met, and also to check to make sure that it does not install something which has already been installed.
 
@@ -101,18 +97,18 @@ That log file will be opened in the standard **/Applications/Utilities/Console.a
 
 [2]:	https://drcdn.blob.core.windows.net/mac/X18-08827.dmg
 
-[3]:	http://www.microsoft.com/en-us/download/details.aspx?id=45872
+[3]:	http://support.microsoft.com/kb/3034381 "Microsoft Office for Mac 2011 14.4.8 update"
 
 [4]:	http://download.microsoft.com/download/7/8/E/78E0938D-FDC7-4975-99E7-54256FECDE07/Office2011-1448Update_EN-US.dmg
 
-[5]:	http://www.microsoft.com/en-us/download/details.aspx?id=35382
+[5]:	http://www.microsoft.com/en-us/download/details.aspx?id=35382 "Microsoft Error Reporting for Mac 2.2.9 Update"
 
 [6]:	http://download.microsoft.com/download/B/F/B/BFB8DEB8-91CD-4722-AE6F-476C4013CFFC/MERP_229.dmg
 
-[7]:	http://www.microsoft.com/en-us/download/details.aspx?id=35381
+[7]:	http://www.microsoft.com/en-us/download/details.aspx?id=35381 "Microsoft AutoUpdate for Mac 2.3.6 Update"
 
 [8]:	http://download.microsoft.com/download/B/0/D/B0DB40D2-FF90-4633-925A-B8A7D4183279/AutoUpdate_236.dmg
 
-[9]:	http://www.microsoft.com/en-us/download/details.aspx?id=29419
+[9]:	http://support.microsoft.com/kb/2685940 "Description of the Office for Mac 2011 14.2 update"
 
 [11]:	https://github.com/tjluoma/office2011/blob/master/office2011.sh
