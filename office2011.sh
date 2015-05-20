@@ -247,7 +247,7 @@ fi
 
 for DMG in \
 			X18-08827.dmg \
-			Office2011-1450Update_EN-US.dmg \
+			Office2011-1451Update_EN-US.dmg \
 			AutoUpdate_236.dmg \
 			MERP_229.dmg
 do
@@ -344,13 +344,13 @@ case "${DMG}" in
 	;;
 
 
-	Office2011-1450Update_EN-US.dmg)
-		FULL_NAME='Microsoft Office for Mac 2011 14.5.0'
-		MORE_INFO='https://support.microsoft.com/en-us/kb/3062536'
-		RECEIPT='com.microsoft.office.all.core.pkg.14.5.0.update'
-		DL_URL='http://download.microsoft.com/download/9/8/4/9847DA34-7D54-4ECF-86A7-EDA4E0F9D29E/Office2011-1450Update_EN-US.dmg'
-		BYTES='119134170'
-		SUM='4fa65ad8c4718845ee779ffdba2d79763c8932cb0a4f4a449c303237ee1238c1'
+	Office2011-1451Update_EN-US.dmg)
+		FULL_NAME='Microsoft Office for Mac 2011 14.5.1 Update'
+		MORE_INFO='https://www.microsoft.com/en-us/download/details.aspx?id=47307'
+		RECEIPT='com.microsoft.office.all.core.pkg.14.5.1.update'
+		DL_URL='http://download.microsoft.com/download/D/1/F/D1F58783-054B-4943-888B-B6EFD83B2957/Office2011-1451Update_EN-US.dmg'
+		BYTES='119145307'
+		SUM='c160dd4156c887f7681b27d5aeb6924e025fd33ece927b67c04fb9ded204e7c8'
 		MIN_VERSION='14.1.0'
 	;;
 
