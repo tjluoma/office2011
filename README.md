@@ -34,7 +34,7 @@ Here is the current (as of 2015-02-14) list of what it will install:
 
 1.  [Microsoft Office 2011 (SP2)][1] 					([Direct Download][2])
 
-2. 	[Microsoft Office for Mac 2011 14.5.1 Update][3] 	([Direct Download][4])
+2. 	[Microsoft Office for Mac 2011 14.5.2 Update][3] 	([Direct Download][4])
 
 3.	[Microsoft Error Reporting for Mac 2.2.9 Update][5]	([Direct Download][6])
 
@@ -97,9 +97,9 @@ That log file will be opened in the standard **/Applications/Utilities/Console.a
 
 [2]:	https://drcdn.blob.core.windows.net/mac/X18-08827.dmg
 
-[3]:	https://www.microsoft.com/en-us/download/details.aspx?id=47307 "Microsoft Office for Mac 2011 14.5.1 update"
+[3]:	https://support.microsoft.com/en-us/kb/3048691 "Microsoft Office for Mac 2011 14.5.2 update"
 
-[4]:	http://download.microsoft.com/download/D/1/F/D1F58783-054B-4943-888B-B6EFD83B2957/Office2011-1451Update_EN-US.dmg
+[4]:	http://download.microsoft.com/download/D/1/C/D1C6B5A9-6734-454E-A96B-CAF771DC7D1F/Office2011-1452Update_EN-US.dmg
 
 [5]:	http://www.microsoft.com/en-us/download/details.aspx?id=35382 "Microsoft Error Reporting for Mac 2.2.9 Update"
 
