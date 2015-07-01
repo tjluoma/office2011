@@ -3,6 +3,14 @@ office2011
 
 A shell script to (download, if necessary) and install Office:Mac 2011 and any known updates without any user intervention.
 
+## Important Note (30 June 2015):
+
+According to [HeiDoc.net][1], Microsoft has taken the core file `X18-08827.dmg` off all of the previous download servers. It is not known whether a new official source will be able to be found.
+
+(A cynical interpretation might be that Microsoft is preparing for Office 2016 and making it harder to re-download Office 2011 will probably encourage people to move to 2016.)
+
+
+
 
 ## Intended Usage
 
