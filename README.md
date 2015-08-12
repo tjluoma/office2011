@@ -3,12 +3,9 @@ office2011
 
 A shell script to (download, if necessary) and install Office:Mac 2011 and any known updates without any user intervention.
 
-## Important Note (30 June 2015):
+[1]:	http://officecdn.microsoft.com/pr/MacOffice2011/en-us/MicrosoftOffice2011.dmg
 
-According to [HeiDoc.net][1], Microsoft has taken the core file `X18-08827.dmg` off all of the previous download servers. It is not known whether a new official source will be able to be found.
-
-(A cynical interpretation might be that Microsoft is preparing for Office 2016 and making it harder to re-download Office 2011 will probably encourage people to move to 2016.)
-
+[2]:	http://download.microsoft.com/download/6/6/6/6668572C-5E01-45D0-992D-6DEA48586532/Office2011-1454Update_EN-US.dmg
 
 
 
@@ -18,9 +15,9 @@ Simply put, this script is intended to quickly let you download and install the 
 
 This is most often useful for when you are setting up a new Mac.
 
-Setting up _more_ than one Mac? Run this script on one Mac, and then copy the `~/Downloads/Office2011/` folder from one computer to another after the installation is finished. That way you will not need to re-download the files, which should save time and bandwidth.
+If you are setting up _more_ than one Mac, you can run this script on *one* Mac, and then copy the `~/Downloads/Office2011/` folder from one computer to another after the installation is finished. That way you will not need to re-download the files, which should save time and bandwidth.
 
-Note that *all* downloads come from Microsoft’s official servers. You are not downloading them off GitHub, or my website, or any other random site. These are official distributions. (See [HeiDoc.net][1] for more information.)
+Note that *all* downloads come from Microsoft’s official servers. You are not downloading them off GitHub, or my website, or any other random site. These are official distributions.
 
 (_Nerdy Technical Security Details_: The script verifies the checksum of each download using `shasum -a 256` to verify that it has not been tampered with or changed. If it does not match, installation will immediately stop.)
 
@@ -38,23 +35,13 @@ Note that *all* downloads come from Microsoft’s official servers. You are not 
 
 The `office2011.sh`  script will look for certain DMG files in a particular folder in your hard drive (by default it will use `~/Downloads/Office2011/` but it will use another folder if you change the `DIR="$HOME/Downloads/Office2011"` line near the top of the script.
 
-Here is the current (as of 2015-02-14) list of what it will install:
+If you want to simply download and install them yourself, here are the direct download links used by the script:
 
-1.  [Microsoft Office 2011 (SP2)][1] 					([Direct Download][2])
+1.  [MicrosoftOffice2011.dmg][1]
 
-2. 	[Microsoft Office for Mac 2011 14.5.2 Update][3] 	([Direct Download][4])
-
-3.	[Microsoft Error Reporting for Mac 2.2.9 Update][5]	([Direct Download][6])
-
-4.	[Microsoft AutoUpdate for Mac 2.3.6 Update][7] 		([Direct Download][8])
+2. [Latest Office Microsoft Office for Mac 2011 Update][2]
 
 The script is intended to be smart enough to check whether minimum requirements are met, and also to check to make sure that it does not install something which has already been installed.
-
-## How to break, fool, or confuse this script ##
-
-1. If you have a version of Microsoft Office installed which is less than 14.2.0 you will need to download and install [Microsoft Office for Mac 2011 Service Pack 2][9].
-
-2. There are probably other ways too.
 
 ## Q: “Does using this script give me _any_ different result than if I had installed Office manually using OS X’s Installer.app?” ##
 
@@ -67,13 +54,13 @@ This is considered a feature.
 
 ### GUI Installer ###
 
-**Update 2013-12-29:** [office2011.sh][11] has been significantly updated, and I have verified that [the Installer](https://github.com/tjluoma/office2011/raw/master/Installer.zip) works on a clean installation which has never had Office installed before.
+For people who are not comfortable with the Terminal, a GUI installer is available.
 
-The installer application is an Automator application and not officially signed, you will see this warning if/when you try to launch it:
+However, because the installer application is an Automator application and not officially signed, you will see this warning if/when you try to launch it:
 
 ![OS X Gatekeeper Warning](images/01-Install-Office-2011-Cant-Be-Opened.png)
 
-You _could_ disable Gatekeeper in OS X’s settings, but I consider that to be a very bad idea, because _exceptions_ can be made very easily using a _one time per app_ process, which I will explain here:.
+You _could_ disable Gatekeeper in OS X’s settings, but I consider that to be a **very bad idea,** because _exceptions_ can be made very easily using a _one time per app_ process, which I will explain here:.
 
 Simply selecting the application that you want to open and then control-click (or right-click) to bring up this contextual menu:
 
@@ -99,24 +86,3 @@ Once the script is downloaded and begins to run, a log file will be created in *
 
 That log file will be opened in the standard **/Applications/Utilities/Console.app** application so you can watch the installation’s progress. (However, I recommend going away to do something fun instead, and just check back later.)
 
-<!-- Reference Links -->
-
-[1]:	http://www.heidoc.net/joomla/technology-science/microsoft/61-office-2011-for-mac-direct-download-links
-
-[2]:	https://drcdn.blob.core.windows.net/mac/X18-08827.dmg
-
-[3]:	https://support.microsoft.com/en-us/kb/3048691 "Microsoft Office for Mac 2011 14.5.2 update"
-
-[4]:	http://download.microsoft.com/download/D/1/C/D1C6B5A9-6734-454E-A96B-CAF771DC7D1F/Office2011-1452Update_EN-US.dmg
-
-[5]:	http://www.microsoft.com/en-us/download/details.aspx?id=35382 "Microsoft Error Reporting for Mac 2.2.9 Update"
-
-[6]:	http://download.microsoft.com/download/B/F/B/BFB8DEB8-91CD-4722-AE6F-476C4013CFFC/MERP_229.dmg
-
-[7]:	http://www.microsoft.com/en-us/download/details.aspx?id=35381 "Microsoft AutoUpdate for Mac 2.3.6 Update"
-
-[8]:	http://download.microsoft.com/download/B/0/D/B0DB40D2-FF90-4633-925A-B8A7D4183279/AutoUpdate_236.dmg
-
-[9]:	http://support.microsoft.com/kb/2685940 "Description of the Office for Mac 2011 14.2 update"
-
-[11]:	https://github.com/tjluoma/office2011/blob/master/office2011.sh
