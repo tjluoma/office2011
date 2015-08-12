@@ -4,7 +4,8 @@
 # From:	Timothy J. Luoma
 # Mail:	luomat at gmail dot com
 # Date:	2013-01-31
-# Last Updated: 2015-06-25 for Office 14.5.2
+# Last Updated: 2015-08-12 for Office 14.5.4
+
 
 PATH=/usr/bin:/usr/sbin:/sbin:/bin:/usr/local/bin
 
@@ -239,17 +240,13 @@ fi
 #
 #	THIS IS WHERE WE DEFINE WHICH DMGs WE ARE GOING TO TRY TO INSTALL!
 #
-#	Note that 'X18-08827.dmg' *MUST* be first.
+#	Note that 'MicrosoftOffice2011.dmg' *MUST* be first.
 #	This script will attempt to install them in the order they are listed.
 #
 
-# 2014-10-01: Verified that MERP_229.dmg and AutoUpdate_236.dmg _do_ need to be installed in addition to 1444Update.
-
 for DMG in \
-			X18-08827.dmg \
-			Office2011-1452Update_EN-US.dmg \
-			AutoUpdate_236.dmg \
-			MERP_229.dmg
+		MicrosoftOffice2011.dmg \
+		Office2011-1454Update_EN-US.dmg
 do
 
 MIN_VERSION=''
@@ -332,48 +329,27 @@ else # if NOT 'launchword'
 
 
 case "${DMG}" in
-	X18-08827.dmg)
-		FULL_NAME='Microsoft Office 2011 (SP2)'
-		MORE_INFO='http://www.heidoc.net/joomla/technology-science/microsoft/61-office-2011-for-mac-direct-download-links'
-		RECEIPT='com.microsoft.office.all.slt_std.pkg.14.2.0'
-		#DL_URL='http://msft.digitalrivercontent.net/mac/X18-08827.dmg'
-		DL_URL='https://drcdn.blob.core.windows.net/mac/X18-08827.dmg'
-		BYTES='1013686365'
-		SUM='64117b06e3067a2e4184aa449ced305ccec0e137df27179084b01ede500f0527'
+	MicrosoftOffice2011.dmg)
+		FULL_NAME='Office Installer'
+		MORE_INFO=''
+		RECEIPT='com.microsoft.office.all.slt_std.pkg.14.5.2'
+		DL_URL='http://officecdn.microsoft.com/pr/MacOffice2011/en-us/MicrosoftOffice2011.dmg'
+		BYTES='0b8ecf514e3afef8b2ec3ed05af8ccf9c1a7574108ef4f27202f1b17bdf15f22'
+		SUM='1013640929'
 		THIS_IS_OFFICE_INSTALLER='yes'
 	;;
 
 
-	Office2011-1452Update_EN-US.dmg)
-		FULL_NAME='Microsoft Office for Mac 2011 14.5.2 Update'
-		MORE_INFO='https://support.microsoft.com/en-us/kb/3048691'
-		RECEIPT='com.microsoft.office.all.core.pkg.14.5.2.update'
-		DL_URL='http://download.microsoft.com/download/D/1/C/D1C6B5A9-6734-454E-A96B-CAF771DC7D1F/Office2011-1452Update_EN-US.dmg'
-		BYTES='119114915'
-		SUM='1b91de416b6751bf1f56b91adfff9d135be390ae7f160ba44f59cf7f6392f081'
+	Office2011-1454Update_EN-US.dmg)
+		FULL_NAME='Microsoft Office for Mac 2011 14.5.4 Update'
+		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=48565'
+		RECEIPT='com.microsoft.office.all.core.pkg.14.5.4.update'
+		DL_URL='http://download.microsoft.com/download/6/6/6/6668572C-5E01-45D0-992D-6DEA48586532/Office2011-1454Update_EN-US.dmg'
+		BYTES='118844896'
+		SUM='a56a220838a5fd2dd92e20f6f32c2cc94d4f6a82ed8537505aa2e16fc90c1c05'
 		MIN_VERSION='14.1.0'
 	;;
 
-
-	MERP_229.dmg)
-		FULL_NAME='Microsoft Error Reporting for Mac 2.2.9 Update'
-		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=35382'
-		RECEIPT='com.microsoft.merp.all.errorreporting.pkg.2.2.9'
-		DL_URL='http://download.microsoft.com/download/B/F/B/BFB8DEB8-91CD-4722-AE6F-476C4013CFFC/MERP_229.dmg'
-		BYTES='1600542'
-		SUM='221400b62d452fd30865c77a9a67441df6fab77417a9e4ea2084922763da8a1b'
-		MIN_VERSION='14.0.0'
-	;;
-
-	AutoUpdate_236.dmg)
-		FULL_NAME='Microsoft AutoUpdate for Mac 2.3.6 Update'
-		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=35381'
-		RECEIPT='com.microsoft.mau.all.autoupdate.pkg.2.3.6'
-		DL_URL='http://download.microsoft.com/download/B/0/D/B0DB40D2-FF90-4633-925A-B8A7D4183279/AutoUpdate_236.dmg'
-		BYTES='930369'
-		SUM='80d9b48fa89847797e166811b9deb7a0cfaff48a989ac8aa2aaf56bca55c1855'
-		MIN_VERSION='14.0.0'
-	;;
 
 esac
 # End URL / SUM case/esac
