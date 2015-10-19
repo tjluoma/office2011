@@ -340,13 +340,13 @@ case "${DMG}" in
 	;;
 
 
-	Office2011-1455Update_EN-US.dmg)
-		FULL_NAME='Microsoft Office for Mac 2011 14.5.5 Update'
-		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=48941'
-		RECEIPT='com.microsoft.office.all.core.pkg.14.5.5.update'
-		DL_URL='http://download.microsoft.com/download/0/8/7/08758304-F9DE-429E-BDE2-51611AB140DE/Office2011-1455Update_EN-US.dmg'
-		BYTES='118834824'
-		SUM='a693dd2090820ed97c8dd0c52ff9a296a374996ac5e02040ef58d14d0f6f569d'
+	Office2011-1457Update_EN-US.dmg)
+		FULL_NAME='Microsoft Office for Mac 2011 14.5.7 Update'
+		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=49436'
+		RECEIPT='com.microsoft.office.all.core.pkg.14.5.7.update'
+		DL_URL='https://download.microsoft.com/download/6/6/1/6612F37D-816A-4051-B686-C08FB8D14C78/Office2011-1457Update_EN-US.dmg'
+		BYTES='118872074'
+		SUM='51544d9adba743750dbda079205defccddecb9b6ef4ac06db97277d50c907529'
 		MIN_VERSION='14.1.0'
 	;;
 
