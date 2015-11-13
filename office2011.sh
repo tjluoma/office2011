@@ -4,7 +4,7 @@
 # From:	Timothy J. Luoma
 # Mail:	luomat at gmail dot com
 # Date:	2013-01-31
-# Last Updated: 2015-09-09 for Office 14.5.5
+# Last Updated: 2015-11-12 for Office 14.5.8
 
 
 PATH=/usr/bin:/usr/sbin:/sbin:/bin:/usr/local/bin
@@ -340,13 +340,17 @@ case "${DMG}" in
 	;;
 
 
-	Office2011-1457Update_EN-US.dmg)
-		FULL_NAME='Microsoft Office for Mac 2011 14.5.7 Update'
-		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=49436'
-		RECEIPT='com.microsoft.office.all.core.pkg.14.5.7.update'
-		DL_URL='https://download.microsoft.com/download/6/6/1/6612F37D-816A-4051-B686-C08FB8D14C78/Office2011-1457Update_EN-US.dmg'
-		BYTES='118872074'
-		SUM='51544d9adba743750dbda079205defccddecb9b6ef4ac06db97277d50c907529'
+# 
+# 
+# 
+
+	Office2011-1458Update_EN-US.dmg)
+		FULL_NAME='Microsoft Office for Mac 2011 14.5.8 Update'
+		MORE_INFO='https://support.microsoft.com/en-us/kb/3102924'
+		RECEIPT='com.microsoft.office.all.core.pkg.14.5.8.update'
+		DL_URL='https://download.microsoft.com/download/A/B/E/ABEB39EC-5DA4-4468-ADD3-3EE0AE40C34B/Office2011-1458Update_EN-US.dmg'
+		BYTES='118882355'
+		SUM='6a1681240cafecda5c36b15c354ff7bbaa0d900a76ecb3be12629ed1f8f7b759'
 		MIN_VERSION='14.1.0'
 	;;
 
