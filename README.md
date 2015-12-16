@@ -5,7 +5,7 @@ A shell script to (download, if necessary) and install Office:Mac 2011 and any k
 
 [1]:	http://officecdn.microsoft.com/pr/MacOffice2011/en-us/MicrosoftOffice2011.dmg
 
-[2]:	https://download.microsoft.com/download/A/B/E/ABEB39EC-5DA4-4468-ADD3-3EE0AE40C34B/Office2011-1458Update_EN-US.dmg
+[2]:	https://download.microsoft.com/download/4/3/B/43B9AC64-FC80-414F-ABB8-8876339C828A/Office2011-1459Update_EN-US.dmg
 
 
 
