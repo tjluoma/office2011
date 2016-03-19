@@ -334,8 +334,8 @@ case "${DMG}" in
 		MORE_INFO=''
 		RECEIPT='com.microsoft.office.all.slt_std.pkg.14.5.2'
 		DL_URL='http://officecdn.microsoft.com/pr/MacOffice2011/en-us/MicrosoftOffice2011.dmg'
-		BYTES='0b8ecf514e3afef8b2ec3ed05af8ccf9c1a7574108ef4f27202f1b17bdf15f22'
-		SUM='1013640929'
+		BYTES='1013640929'
+		SUM='0b8ecf514e3afef8b2ec3ed05af8ccf9c1a7574108ef4f27202f1b17bdf15f22'
 		THIS_IS_OFFICE_INSTALLER='yes'
 	;;
 
