@@ -4,7 +4,14 @@
 # From:	Timothy J. Luoma
 # Mail:	luomat at gmail dot com
 # Date:	2013-01-31
-# Last Updated: 2015-12-16 for Office 14.5.9
+
+
+# Last Updated: 2016-03-30 for Office 14.6.2
+
+
+
+
+
 
 
 PATH=/usr/bin:/usr/sbin:/sbin:/bin:/usr/local/bin
@@ -246,8 +253,10 @@ fi
 
 for DMG in \
 		MicrosoftOffice2011.dmg \
-		Office2011-1461Update_EN-US.dmg
+		Office2011-1462Update_EN-US.dmg
 do
+
+
 
 
 
@@ -339,13 +348,13 @@ case "${DMG}" in
 		THIS_IS_OFFICE_INSTALLER='yes'
 	;;
 
-	Office2011-1461Update_EN-US.dmg)
-		FULL_NAME='Microsoft Office for Mac 2011 14.6.1 Update'
-		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=51174'
-		RECEIPT='com.microsoft.office.all.core.pkg.14.6.1.update'
-		DL_URL='https://download.microsoft.com/download/2/9/C/29C00BAC-97AA-4126-A10E-98EE37B9CD37/Office2011-1461Update_EN-US.dmg'
-		BYTES='118884857'
-		SUM='02e34992f47b0979e95d258778decb736c234b496ceb3908afcbd2a16dddc3f6'
+	Office2011-1462Update_EN-US.dmg)
+		FULL_NAME='Microsoft Office for Mac 2011 14.6.2 Update'
+		MORE_INFO='http://www.microsoft.com/en-us/download/details.aspx?id=51608'
+		RECEIPT='com.microsoft.office.all.core.pkg.14.6.2.update'
+		DL_URL='https://download.microsoft.com/download/A/7/0/A7064A4F-3BB9-4094-AFF8-464A921F1A7F/Office2011-1462Update_EN-US.dmg'
+		BYTES='118909257'
+		SUM='0a03d306b947fa40bd616d55ce901cdca0aa980c0233ee42ece3d7d2f1c6ba9d'
 		MIN_VERSION='14.1.0'
 	;;
 
